@@ -1,6 +1,17 @@
 def modify_cmp_content(content):
-    # TODO: extract binary codes and char_n dict from content and return them
-    pass
+    # get lines from content
+    content_list = content.split('\n')
+    char_n_dict = {}
+    for line in content_list:
+        if line =='--':
+            # now we have the binary codes and char_n_dict completed
+            content = '\n'.join(content_list[content_list.index(line)+1:])
+            print(content)
+            break
+        char_n_dict[line[0]] = int(line[2:])
+
+    return content,char_n_dict
+
 
 def open_file(file_dir):
     # open file and return the content
@@ -12,6 +23,7 @@ def write_file(content,dir,name):
     # write content in a file with given format and save it in given dir
     with open(dir+name,"w") as file:
         file.write(content)
+
 
 
 

@@ -14,10 +14,10 @@ def huffman_algorithm(char_n_dict):
 def encoding(content):
     # count characters in content using Counter from collection lib
     char_n_dict = dict(Counter(content))
+    char_n_dict.pop('\n')
     # create tree
     tree = huffman_algorithm(char_n_dict)
     # encoding---------------
-    # TODO: handle "\n" in encoded content
     encoded_content = ''
     # add char_n dict to encoded content
     for char,n in char_n_dict.items():
@@ -25,6 +25,8 @@ def encoding(content):
     encoded_content += '--\n'
     # replace characters with binary code
     for char in content:
+        if char == '\n':
+            continue
         code = tree.binary_codes_dict[char]
         encoded_content += code
     return encoded_content

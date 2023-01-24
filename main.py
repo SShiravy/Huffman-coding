@@ -24,6 +24,7 @@ if __name__ == "__main__":
         encoded_content = encoding(content)
         # create and save cmp file
         write_file(encoded_content,output_directory,'encoded_content.cmp')
+
         dialog_message = 'encode txt to cmp'
 
     # show dialog message
