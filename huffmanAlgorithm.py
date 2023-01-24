@@ -26,6 +26,7 @@ def encoding(content):
     # replace characters with binary code
     for char in content:
         if char == '\n':
+            encoded_content+='\n'
             continue
         code = tree.binary_codes_dict[char]
         encoded_content += code
@@ -44,6 +45,9 @@ def decoding(encoded_content,char_n_dict):
     select_code = ''
     for c in encoded_content:
         select_code += c
+        if c == '\n':
+            decoded_content+='\n'
+            select_code =''
         try:
             decoded_content+=decode_dict[select_code]
             select_code=''

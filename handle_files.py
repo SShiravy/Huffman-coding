@@ -4,7 +4,7 @@ def modify_cmp_content(content):
     char_n_dict = {}
     for line in content_list:
         if line =='--':
-            # now we have the binary codes and char_n_dict completed
+            # char_n_dict completed and now we have the binary codes
             content = '\n'.join(content_list[content_list.index(line)+1:])
             print(content)
             break
